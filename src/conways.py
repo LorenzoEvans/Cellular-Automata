@@ -39,7 +39,7 @@ while not done:
     screen.fill(GRAY)
  
     # --- Drawing code should go here
-   
+    pygame.draw.rect(screen, WHITE, pygame.Rect(200, 200, 100, 100))
 
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
