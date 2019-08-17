@@ -13,7 +13,7 @@ size = (WIN_SIZE, WIN_SIZE)
 screen = pygame.display.set_mode(size)
 
 # Add a title
-pygame.display.set_caption("Conway's Game of Life")
+pygame.display.set_caption("Coooonway's Game of Life")
  
 # Loop until the user clicks the close button.
 done = False
@@ -39,7 +39,13 @@ while not done:
     screen.fill(GRAY)
  
     # --- Drawing code should go here
-    pygame.draw.rect(screen, WHITE, pygame.Rect(200, 200, 100, 100))
+    x = 5
+    y = 5
+    while x < 500:
+     while y < 500:
+      pygame.draw.rect(screen, WHITE, pygame.Rect(x, y, 20, 20))
+      y += 25
+     x += 25
 
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
