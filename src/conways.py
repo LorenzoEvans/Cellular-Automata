@@ -7,8 +7,13 @@ GRAY = (25, 25, 25)
 WIN_SIZE = 505
 
 cur_states = [0] * 400
-
-
+for i in range(0, len(cur_states), 2):
+ cur_states[i] = 1
+for i in range(200, len(cur_states), 1):
+ cur_states[i] = 0
+# for i in cur_states:
+#  if cur_states.index(cur_states[i]) % 2 is not 0:
+#   cur_states[i] == 1
 post_states = []
 
 pygame.init()
@@ -50,13 +55,14 @@ while not done:
     on = 1
     while x < 500:
      y = 5
+     index += 1
      while y < 500:
       # Draw based on cur states
       state = cur_states[index]
       # Draw based on values in next state, or post state
       if state is on:
        pygame.draw.rect(screen, WHITE, pygame.Rect(x, y, 20, 20))
-      elif state is off
+      elif state is off:
        pygame.draw.rect(screen, BLACK, pygame.Rect(x, y, 20, 20))
       y += 25
      x += 25
