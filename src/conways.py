@@ -4,7 +4,12 @@ import pygame, random
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GRAY = (25, 25, 25)
-WIN_SIZE = 500
+WIN_SIZE = 505
+
+cur_states = [0] * 400
+
+
+post_states = []
 
 pygame.init()
  
@@ -13,7 +18,7 @@ size = (WIN_SIZE, WIN_SIZE)
 screen = pygame.display.set_mode(size)
 
 # Add a title
-pygame.display.set_caption("Coooonway's Game of Life")
+pygame.display.set_caption("Conway's Game of Life")
  
 # Loop until the user clicks the close button.
 done = False
@@ -40,10 +45,19 @@ while not done:
  
     # --- Drawing code should go here
     x = 5
-    y = 5
+    index = 0
+    off = 0
+    on = 1
     while x < 500:
+     y = 5
      while y < 500:
-      pygame.draw.rect(screen, WHITE, pygame.Rect(x, y, 20, 20))
+      # Draw based on cur states
+      state = cur_states[index]
+      # Draw based on values in next state, or post state
+      if state is on:
+       pygame.draw.rect(screen, WHITE, pygame.Rect(x, y, 20, 20))
+      elif state is off
+       pygame.draw.rect(screen, BLACK, pygame.Rect(x, y, 20, 20))
       y += 25
      x += 25
 
